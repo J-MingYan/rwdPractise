@@ -1,0 +1,771 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*p{
+    background: darkgray;
+    color: blue;
+    width: 300px;
+    height: 50px;
+}*/
+*,*:before,*:after{
+	box-sizing: border-box;
+	text-decoration: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.test
+{
+	display: none !important; /*後面為最高權限*/
+}
+
+
+
+
+
+
+.wrap
+{
+	max-width: 1024px;
+	margin: 0 auto;
+	border: 1px solid black;
+}
+.header
+{
+	height: 56px;
+	background: black;
+	/* background: rgba(0,0,0,0.75); */
+	display: flex;
+	align-items: center;
+	justify-content:space-between;
+}
+.logo a
+{
+	width: 40px;
+	height: 40px;
+	display: block;
+	background-image: url("../img/sun.svg");
+	text-indent: 101%;
+	overflow: hidden;
+	white-space: nowrap;
+	margin-left: 42px;
+}
+@media (max-width:900px)
+{
+	.logo a
+	{
+		margin-left: 10px;
+	}
+	.header
+	{
+		position: relative;
+	}
+}
+
+/*導覽列開始*/
+.menu
+{
+	display: flex;
+}
+.menu li a
+{
+	/* font-family: MicrosoftJhengHeiRegular; */
+	/* color: #FFFFFF; */
+	font-size: 16px;
+	color: white;
+	display: block;
+	margin-right: 48px;
+	position: relative;
+}
+.menu li a::after
+{
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	border-radius: 10px;
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	transform-origin: right;
+	transform: scaleX(0);
+	transition: transform .5s;
+}
+.menu li a:hover::after
+{
+	transform-origin: left;
+	transform: scaleX(1);
+}
+.opne ,.xmark
+{
+	color: white;
+	font-size: 26px;
+	margin-right: 18px;
+	cursor: pointer;
+	display: none;
+}
+/* .xmark
+{
+	color: white;
+	font-size: 26px;
+	margin-right: 18px;
+	cursor: pointer;
+	display: none;
+} */
+.show .menu
+{
+	max-height: 250px;
+}
+@media (max-width:900px)
+{
+	.menu
+	{
+		/* display: none; */
+		background: orange;
+		/*隱藏開始*/
+		max-height: 0;
+		overflow: hidden;
+		/*隱藏結束*/
+
+		margin-top: 1px;
+		transition: max-height 1s;
+		position: absolute;
+		top: 55px;
+		left: 0;
+		right: 0;
+		z-index: 100;
+		flex-direction: column;
+	}
+	.menu li
+	{
+		width: 100%;
+		text-align: center;
+		/* background: pink; */
+		padding: 10px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		/* border: 1px solid black; */
+	}
+	.menu li a
+	{
+		display: inline;
+		width: 100%;
+		/* background: pink; */
+		padding: 10px 50px;
+		margin-right: 0;
+		/* border: 1px solid black; */
+	}
+	.opne
+	{
+		display: block;
+	}
+}
+
+/*導覽列結束*/
+
+/*橫式廣告開始*/
+.banner
+{
+	background-image: url("../imgg/header_desktop.png");
+	height: 420px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+	transition: all .5s;/*亂玩的*/
+}
+.banner-box
+{	width: 460px;
+	/* width: 46%;*//*可以試著用％，會自適應*/
+	height: 152px;
+	display: inline-block;
+	background: rgba(0,0,0, 0.35);
+	/* background: pink; */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.banner-box h1
+{
+	font-size: 36px;
+	margin:20px 0px 16px 0px;
+	text-align: center;
+	color: white;
+}
+.banner-box p
+{
+	text-align: center;
+	font-size: 16px;
+	color: white;
+}
+.banner-box  :nth-child(3)
+{
+	margin-top: 5px;
+}
+@media (max-width:900px)
+{
+	.banner
+	{
+		background-image: url("../imgg/header_mobile.png");
+		background-color: gray;
+	}
+	.banner-box
+	{
+		width: 300px;
+		/* width: 30%;*//*可以試著用％，會自適應*/
+		height: 194px;
+	}
+	.banner-box span
+	{
+		display: block;
+		margin-bottom: 20px;
+	}
+}
+/*橫式廣告結束*/
+
+
+
+
+/*內容-產品開始*/
+.content
+{
+	background-color: #EFE9E7;
+	padding: 48px 0px 20px 0px;
+	display: flex;
+	justify-content: center;
+}
+/*－－－－－－－－－－－－－左邊開始－－－－－－－－－－－－*/
+.food
+{
+	width: 22%;
+	/* height: 300px; 參考用*/
+	border: 1px solid black none;/*參考用*/
+}
+/*葉子和Ｈ２*/
+.ps
+{
+	display: flex;
+	align-items: center;
+	margin-bottom: 16px;
+}
+.ps .leaf
+{
+	font-size: 32px;
+	color: #3D1101;
+	margin-right: 15px;
+}
+.ps h2
+{
+	color: #3D1101;
+	font-size: 20px;
+	font-family: Microsoft JhengHei;
+}
+/*菜單係項*/
+.food-menu
+{
+	/*參考用*/
+	background:  none ;
+}
+.food-menu li
+{
+	width: 100%;
+	border-bottom: 2px solid #3D1101;
+	margin-bottom: 3px;
+}
+.food-menu li a
+{
+	display: block;
+	cursor: pointer;
+	/* padding: 16px 0px; */
+	padding-left: 8px;
+	/* background: gray; */
+	color: #3D1101;
+	line-height: 32px;
+	font-family: Microsoft JhengHei;
+	transition: all .2s;
+}
+.food-menu li a:hover,.food-menu li a.act
+{
+	background: #3D1101;
+	color: white;
+}
+@media (max-width:900px)
+{
+	.content
+	{
+		flex-wrap: wrap;
+		padding: 52px 0px 20px 0px;
+	}
+	.food
+	{
+		width: 100%;
+		margin-bottom: 22px;
+		padding: 0 10px;
+	}	
+}
+/*－－－－－－－－－－－－－左邊結束－－－－－－－－－－－－*/
+
+
+
+/*－－－－－－－－－－－－－右邊開始－－－－－－－－－－－－*/
+.product
+{
+	width: 70%;
+	/* height: 600px; */
+	margin-left: 20px;
+	/* border: 1px solid red ; */
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+/*搜索開始*/
+.search
+{
+	width: 65.3333%;
+	height: 32px;
+	background: pink;
+	position: relative;
+}
+.search-bar
+{
+	width: 100%;
+	height: 32px;
+	border: 2px solid #3D1101;
+	background: #EFE9E7;
+}
+.search-bar:focus
+{
+	outline: 0;
+	border: 2px solid blue;
+}
+.pure-button
+{
+position: absolute;
+top: 0;
+right: 0;
+background: #3D1101;
+color:white;
+width: 36px;
+height: 32px;
+font-size: 19px;
+padding: 0;
+}
+@media (max-width:900px)
+{
+	.product
+	{
+		width: 100%;
+		margin-left: 0;
+		padding: 0 10px;
+	}	
+	.search
+	{
+		width: 100%;
+	}
+}
+/*搜索結束*/
+.cart
+{
+	width: 34.3333%;
+	/* background: orange; */
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+.cart a i
+{
+	font-size: 32px;
+}
+.cart a
+{
+	display: block;
+	width: 72px;
+	text-align: center;
+	/* background: gray; */
+	color: #3D1101;
+	font-family: Microsoft JhengHei;
+}
+.cart  :nth-last-child(2)
+{
+	border-right: 2px solid #3D1101;
+}
+@media (max-width:900px)
+{
+	.cart
+	{
+		width: 100%;
+		margin: 15px 0 29px 0;
+	}	
+}
+/*－－－－－－－－－－－－－右邊結束－－－－－－－－－－－－*/
+
+
+/*－－－－－－－－－－－－右下菜單內容－－開始－－－－－－－*/
+.asd
+{
+	width: 100%;
+	margin-top: 26px;
+	/* height: 500px; */
+	/* background: #3D1101; */
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.asd li
+{
+	width: 31.33333%;
+	/* width: 220px; */
+	/* border: 1px solid red; */
+	box-shadow: 3px 3px 4px 3px rgba(0,0,0,0.16);
+	/* background: pink; */
+	margin-bottom: 30px;
+	overflow: hidden;
+	position: relative;
+}
+@media (max-width:900px)
+{
+	.asd
+	{
+		margin-top: 0;
+	}
+	.asd li
+	{
+		width: 48%;
+	}
+}
+@media (max-width:320px)
+{
+	.asd li
+	{
+		width: 100%;
+	}
+}
+.asd li:hover
+{
+	box-shadow: 3px 3px 5px 5px gray;
+}
+.asd .img
+{
+	/* width: 100%; */
+	height: 120px;
+	overflow: hidden;
+}
+.asd li img
+{
+	display: block;
+	width: 100%;
+	height: 120px;
+	margin: 0 auto;
+	/* object-fit: fill; */
+	object-fit: cover;
+	/* object-fit: contain; */
+	/* background-repeat: no-repeat; */
+	/* background-position: center; */
+	/* background-size: cover; */
+	transition: .7s;
+}
+.asd li img:hover
+{
+	transform: scale(1.1);
+}
+.love
+{
+	/* font-weight: 900; */
+	cursor: pointer;
+	color: white;
+	font-size: 23px;
+	position: absolute;
+	top: 9px;
+	left: 9px;
+}
+.max
+{
+	font-weight: 900;
+	color: pink;
+}
+.asd li h2,.asd li h3
+{
+	font-family: Microsoft JhengHei;
+	color: #3D1101;
+	text-align: center;
+}
+.asd li h2
+{
+	font-size: 20px;
+	margin-top: 11px;
+	margin-bottom: 5px;
+}
+.asd li h3
+{
+	font-size: 12px;
+}
+.asd .asd-border
+{
+	display: block;
+	margin: 8px auto;
+	width: 91px;
+	height: 2px;
+	background: #3D1101;
+}
+.asd .money
+{
+	display: block;
+	font-family: Microsoft JhengHei;
+	color: #3D1101;
+	font-size: 20px;
+	font-style: italic;/*斜體*/
+	text-align: center;
+	margin: 20px 0 3px 0 ;
+}
+.but-orange
+{
+	display: block;
+	margin: 10px auto;
+	width: 93%;
+	height: 28px;
+	font-size: 16px;
+	font-family: Microsoft JhengHei;
+	background: #EFE9E7;
+	color:#ff5e45;
+	border: 2px solid #ff5e45;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.but-orange:active
+{
+	background: #ff5e45;
+	color: #EFE9E7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*清除樣式*/
+@media only screen and (max-width : 480px) {
+    .pure-form button[type=submit] {
+        margin:0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*頁尾開始*/
+.footer
+{
+	background-color:#EFE9E7 ;
+	/* height: 232px; 參考用*/
+	font-family: Microsoft JhengHei;
+	color:#3D1101;
+}
+.footer-content
+{
+	display: flex;
+	justify-content: center;
+	/* padding-top: 50px; 參考用*/
+	padding: 0px 42px 23px 42px;
+	/* background: pink; 參考用*/
+}
+.footer-content li
+{
+	width: 33.33333%;
+	/* border: 1px solid black; 參考用*/
+}
+.footer-content li h2
+{
+	font-size: 24px;
+	margin-bottom: 16px;
+}
+.footer-content li span
+{
+	margin-right: 8px;
+}
+.footer-content li p
+{
+	line-height: 1.4;
+	/* background: gray; 參考用*/
+	padding-right: 20px;
+}
+@media (max-width:900px)
+{
+	.footer-content
+	{
+		flex-direction: column;
+		padding: 20px 10px 0px 10px;
+	}
+	.footer-content >li
+	{
+		width: 100%;
+		/* border: 1px solid black; 參考用*/
+		margin-top: 30px;
+	}
+	.footer-content li p
+	{
+		padding-right: 0;
+	}
+}
+
+.footer-connection
+{
+	/* background: #F56C23; 參考用*/
+	list-style: disc;
+	padding-left: 19px;
+}
+.footer-connection li
+{
+	width: 100%;
+	margin-top: 5px;
+}
+
+
+.footer-right
+{
+	/* background: white; 參考用*/
+	text-align: right;
+}
+.footer-right h3
+{
+	font-weight: bold;
+	font-size: 49px;
+	margin-bottom: 23px;
+}
+.footer-right i
+{
+	font-size: 36px;
+	margin-left: 5px;
+}
+@media (max-width:900px)
+{
+	.footer-right
+	{
+		margin-bottom: 50px;
+	}
+}
+/*頁尾結束*/
+
+
+
+
+
+
+
+
+/*
+漢堡選單設計以參考學員
+https://codepen.io/autnmimw-the-encoder/pen/QWrOoje?editors=0110
+
+ＯＦＦ學員作業參考
+https://codepen.io/Howell-LG/pen/NWOwgxa?editors=0110
+
+以參考漢堡
+https://codepen.io/chrismabry/pen/PqYWYo
+
+暫時不參考漢堡
+https://codepen.io/andredomrod/pen/oNodRO
+
+能力不足參考漢堡
+https://codepen.io/jasonhsieh-web/pen/RwrRjdV?editors=1100
+
+新前的線－ＳＶＧ
+https://codepen.io/TzuHui/pen/aPebLP
+
+緞帶參考
+https://codepen.io/nxworld/pen/oLdoWb?editors=1100
+
+偽元素參考文章
+https://w3c.hexschool.com/blog/5667df85
+*/
+
+
+
+
+
+

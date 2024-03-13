@@ -1,0 +1,513 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*p{
+    background: darkgray;
+    color: blue;
+    width: 300px;
+    height: 50px;
+}*/
+*,*:before,*:after{
+	box-sizing: border-box;
+	text-decoration: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.test
+{
+	display: none !important; /*後面為最高權限*/
+}
+
+
+
+
+
+
+.wrap
+{
+	max-width: 1024px;
+	margin: 0 auto;
+	border: 1px solid black;
+}
+.header
+{
+	height: 56px;
+	background: black;
+	/* background: rgba(0,0,0,0.75); */
+	display: flex;
+	align-items: center;
+	justify-content:space-between;
+}
+.logo a
+{
+	width: 40px;
+	height: 40px;
+	display: block;
+	background-image: url("../img/sun.svg");
+	text-indent: 101%;
+	overflow: hidden;
+	white-space: nowrap;
+	margin-left: 42px;
+}
+@media (max-width:900px)
+{
+	.logo a
+	{
+		margin-left: 10px;
+	}
+	.header
+	{
+		position: relative;
+	}
+}
+
+/*導覽列開始*/
+.menu
+{
+	display: flex;
+}
+.menu li a
+{
+	/* font-family: MicrosoftJhengHeiRegular; */
+	/* color: #FFFFFF; */
+	font-size: 16px;
+	color: white;
+	display: block;
+	margin-right: 48px;
+	position: relative;
+}
+.menu li a::after
+{
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	border-radius: 10px;
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	transform-origin: right;
+	transform: scaleX(0);
+	transition: transform .5s;
+}
+.menu li a:hover::after
+{
+	transform-origin: left;
+	transform: scaleX(1);
+}
+.opne
+{
+	color: white;
+	font-size: 26px;
+	margin-right: 18px;
+	cursor: pointer;
+	display: none;
+}
+.xmark
+{
+	color: white;
+	font-size: 26px;
+	margin-right: 18px;
+	cursor: pointer;
+	display: none;
+}
+.show .menu
+{
+	max-height: 250px;
+}
+@media (max-width:900px)
+{
+	.menu
+	{
+		/* display: none; */
+		background: orange;
+		/*隱藏開始*/
+		max-height: 0;
+		overflow: hidden;
+		/*隱藏結束*/
+
+		margin-top: 1px;
+		transition: max-height 1s;
+		position: absolute;
+		top: 55px;
+		left: 0;
+		right: 0;
+		z-index: 100;
+		flex-direction: column;
+	}
+	.menu li
+	{
+		width: 100%;
+		text-align: center;
+		/* background: pink; */
+		padding: 10px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		/* border: 1px solid black; */
+	}
+	.menu li a
+	{
+		display: inline;
+		width: 100%;
+		/* background: pink; */
+		padding: 10px 50px;
+		margin-right: 0;
+		/* border: 1px solid black; */
+	}
+	.opne
+	{
+		display: block;
+	}
+}
+/*導覽列結束*/
+
+/*橫式廣告開始*/
+.banner
+{
+	background-image: url("../imgg/header_desktop.png");
+	height: 420px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+	transition: all .5s;/*亂玩的*/
+}
+.banner-box
+{	width: 460px;
+	/* width: 46%;*//*可以試著用％，會自適應*/
+	height: 152px;
+	display: inline-block;
+	background: rgba(0,0,0, 0.35);
+	/* background: pink; */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.banner-box h1
+{
+	font-size: 36px;
+	margin:20px 0px 16px 0px;
+	text-align: center;
+	color: white;
+}
+.banner-box p
+{
+	text-align: center;
+	font-size: 16px;
+	color: white;
+}
+.banner-box  :nth-child(3)
+{
+	margin-top: 5px;
+}
+@media (max-width:900px)
+{
+	.banner
+	{
+		background-image: url("../imgg/header_mobile.png");
+		background-color: gray;
+	}
+	.banner-box
+	{
+		width: 300px;
+		/* width: 30%;*//*可以試著用％，會自適應*/
+		height: 194px;
+	}
+	.banner-box span
+	{
+		display: block;
+		margin-bottom: 20px;
+	}
+}
+/*橫式廣告結束*/
+
+/*內容-表格開始*/
+.content
+{
+	background: #EFE9E7;
+	padding: 50px 0px 0px 0px;
+}
+.content h2
+{
+	color: #3D1101;
+	font-size: 48px;
+	text-align: center;
+	margin-bottom:	5px;
+	font-family: Microsoft JhengHei;
+	font-weight: bold;
+}
+.content span
+{
+	display: block;
+	color: #3D1101;
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 35px;
+	font-family: Microsoft JhengHei;
+	
+}
+.content-tabulation
+{
+	max-width: 300px;
+	margin: 0 auto;
+	/* border: 1px solid black; */
+	border-top: 3px solid #ff5e45;
+	box-shadow: 3px 3px 4px 0px rgba(0,0,0, 0.50);
+
+	position: relative;/*相對定位*/
+}
+.content-tabulation i:nth-child(2)
+{
+	position: absolute;/*絕對定位*/
+	margin: 38px 25px;
+	font-size: 15px;
+	color:  rgba(61,17,0,0.50);
+}
+.content-tabulation i:nth-child(3)
+{
+	position: absolute;/*絕對定位*/
+	margin: 105px 25px;
+	font-size: 15px;
+	color:  rgba(61,17,0,0.50);
+}
+.content-tabulation h3
+{
+	color: #3D1101;
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+	font-family: Microsoft JhengHei;
+	margin: 12px 0px 7px 0px;
+}
+.tabu
+{
+	padding: 0px 15px ;
+}
+.tabu label
+{
+	color: #3D1101;
+	font-family: Microsoft JhengHei;
+}
+.tabu fieldset input:nth-child(2)
+{
+	width: 100%;
+	height: 32px;
+	padding-left: 25px;
+	margin-bottom: 15px;
+}
+.tabu fieldset input:nth-child(4)
+{
+	width: 100%;
+	height: 32px;
+	padding-left: 25px;
+	margin-bottom: 3px;
+}
+.tabu fieldset a
+{
+	display: block;
+	color: #ff5e45;
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+
+/*按鈕*/
+.tabu .grey
+{
+	width: 125px;
+	height: 32px;
+	font-size: 14px;
+	background: rgba(0,0,0,0.35);
+	border-radius: 3px;
+	font-family: Microsoft JhengHei;
+}
+.tabu .orange
+{
+	width: 125px;
+	height: 32px;
+	font-size: 14px;
+	background: #F56C23;
+	border-radius: 3px;
+	font-family: Microsoft JhengHei;
+	float: right;
+}
+/*清除樣式*/
+@media only screen and (max-width : 480px) {
+    .pure-form button[type=submit] {
+        margin:0;
+    }
+}
+
+
+
+/*頁尾開始*/
+.footer
+{
+	background-color:#EFE9E7 ;
+	/* height: 232px; 參考用*/
+	font-family: Microsoft JhengHei;
+	color:#3D1101;
+}
+.footer-content
+{
+	display: flex;
+	justify-content: center;
+	/* padding-top: 50px; 參考用*/
+	padding: 50px 42px;
+	/* background: pink; 參考用*/
+}
+.footer-content li
+{
+	width: 33.33333%;
+	/* border: 1px solid black; 參考用*/
+}
+.footer-content li h2
+{
+	font-size: 24px;
+	margin-bottom: 16px;
+}
+.footer-content li span
+{
+	margin-right: 8px;
+}
+.footer-content li p
+{
+	line-height: 1.4;
+	/* background: gray; 參考用*/
+	padding-right: 20px;
+}
+@media (max-width:900px)
+{
+	.footer-content
+	{
+		flex-direction: column;
+		padding: 20px 10px 0px 10px;
+	}
+	.footer-content >li
+	{
+		width: 100%;
+		/* border: 1px solid black; 參考用*/
+		margin-top: 30px;
+	}
+	.footer-content li p
+	{
+		padding-right: 0;
+	}
+}
+
+.footer-connection
+{
+	/* background: #F56C23; 參考用*/
+	list-style: disc;
+	padding-left: 19px;
+}
+.footer-connection li
+{
+	width: 100%;
+	margin-top: 5px;
+}
+
+
+.footer-right
+{
+	/* background: white; 參考用*/
+	text-align: right;
+}
+.footer-right h3
+{
+	font-weight: bold;
+	font-size: 49px;
+	margin-bottom: 23px;
+}
+.footer-right i
+{
+	font-size: 36px;
+	margin-left: 5px;
+}
+@media (max-width:900px)
+{
+	.footer-right
+	{
+		margin-bottom: 50px;
+	}
+}
+/*頁尾結束*/
+
+
+
+
+
+
+
+
+/*
+漢堡選單設計以參考學員
+https://codepen.io/autnmimw-the-encoder/pen/QWrOoje?editors=0110
+
+ＯＦＦ學員作業參考
+https://codepen.io/Howell-LG/pen/NWOwgxa?editors=0110
+
+以參考漢堡
+https://codepen.io/chrismabry/pen/PqYWYo
+
+暫時不參考漢堡
+https://codepen.io/andredomrod/pen/oNodRO
+
+能力不足參考漢堡
+https://codepen.io/jasonhsieh-web/pen/RwrRjdV?editors=1100
+
+新前的線－ＳＶＧ
+https://codepen.io/TzuHui/pen/aPebLP
+
+偽元素參考文章
+https://w3c.hexschool.com/blog/5667df85
+*/
+
+
